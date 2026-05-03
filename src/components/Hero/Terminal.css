@@ -1,0 +1,95 @@
+/* src/components/Hero/Terminal.css */
+
+.terminal-window {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-secondary); /* Adaptive background */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  transition: background 0.3s var(--ease-out), border-color 0.3s;
+}
+
+.terminal-header {
+  height: 32px;
+  background: var(--bg-card); /* Adaptive header */
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s var(--ease-out);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+  font-size: 0.65rem;
+  color: #9b8b80; /* Warm Muted */
+  margin-left: 2rem;
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  height: 250px; /* Fixed height! */
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #dac5af; /* Warm Cream Text */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar for a cleaner look */
+}
+
+.terminal-body::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.terminal-prompt {
+  color: #b85e36; /* Terracotta Prompt */
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.terminal-command {
+  color: #c4714a; /* Copper/Brownish Command */
+}
+
+.terminal-output {
+  color: #7a9e8a; /* Sage Output (Keep for terminal feel) */
+  margin-bottom: 0.5rem;
+}
+
+.mt-2 { margin-top: 0.5rem; }
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: #f5ecd1; /* Cream Cursor */
+  vertical-align: middle;
+  margin-left: 4px;
+  margin-top: 4px;
+  transition: opacity 0.1s;
+}
+
+.terminal-check {
+  vertical-align: middle;
+  margin-left: 2px;
+}
+

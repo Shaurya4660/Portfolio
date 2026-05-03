@@ -1,0 +1,11 @@
+{
+  "short_name": "SV Portfolio",
+  "name": "Shaurya Vishnoi — Software Developer",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#b85e36",
+  "background_color": "#fdfaf5"
+}

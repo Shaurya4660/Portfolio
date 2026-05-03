@@ -1,0 +1,262 @@
+/* src/components/WhatsApp/WhatsAppWidget.css */
+
+.wa-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-body);
+}
+
+/* Floating Action Button */
+.wa-fab {
+  width: 60px;
+  height: 60px;
+  background-color: #27c93f;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(39, 201, 63, 0.4);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wa-fab:hover {
+  transform: scale(1.1);
+}
+
+.wa-fab.active {
+  transform: scale(0.9) rotate(15deg);
+}
+
+/* Pulse Animation for FAB */
+.wa-fab-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid #27c93f;
+  border-radius: 50%;
+  z-index: -1;
+  animation: waPulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0% {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+  }
+  100% {
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+  }
+}
+
+/* Popup Card */
+.wa-popup {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 320px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  transform-origin: bottom right;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--border);
+}
+
+.wa-popup.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Header */
+.wa-popup-header {
+  background: #27c93f;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.wa-header-icon {
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wa-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-header-title {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.wa-header-sub {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.wa-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: white;
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.wa-close-btn:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Body */
+.wa-popup-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: white; /* Always keep QR area white for high contrast */
+}
+
+[data-theme='dark'] .wa-popup-body {
+  background: var(--bg-card);
+}
+
+.wa-qr-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.wa-qr-wrapper {
+  background: white; /* QR needs white bg */
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+  border: 1px solid #eee;
+}
+
+[data-theme='dark'] .wa-qr-wrapper {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #ffffff; /* Maintain white background for scannability */
+}
+
+.wa-qr-img {
+  width: 160px;
+  height: 160px;
+  display: block;
+}
+
+.wa-divider {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.wa-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.wa-divider span {
+  position: relative;
+  background: white;
+  padding: 0 10px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+[data-theme='dark'] .wa-divider span {
+  background: var(--bg-card);
+}
+
+.wa-start-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #27c93f;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(39, 201, 63, 0.3);
+}
+
+.wa-start-btn:hover {
+  background: #22b137;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39, 201, 63, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .wa-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .wa-popup {
+    width: 290px;
+    right: -10px; /* Offset slightly on very small screens */
+    bottom: 70px;
+  }
+}

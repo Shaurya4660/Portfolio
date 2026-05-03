@@ -1,0 +1,162 @@
+/* src/components/Experience/Experience.css */
+
+.experience-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-2), transparent);
+  border-radius: 1px;
+}
+
+.exp-item {
+  position: relative;
+  padding: 0 0 2rem 2.5rem;
+}
+
+.exp-item:last-child { padding-bottom: 0; }
+
+/* Timeline dot */
+.exp-dot {
+  position: absolute;
+  left: -2.35rem;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2.5px solid var(--bg-primary);
+  box-shadow: 0 0 0 3px rgba(196, 113, 74, 0.2);
+  transition: box-shadow 0.3s;
+}
+
+.exp-item:hover .exp-dot {
+  box-shadow: 0 0 0 6px rgba(196, 113, 74, 0.15);
+}
+
+.exp-header {
+  margin-bottom: 1rem;
+}
+
+.exp-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exp-period::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
+.exp-role {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+.exp-company {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.exp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.exp-bullets li::before {
+  content: '→';
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+/* Key project box */
+.exp-key-project {
+  background: linear-gradient(135deg, rgba(196, 113, 74, 0.05), rgba(122, 158, 138, 0.05));
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.25rem 1.5rem;
+}
+
+.kp-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
+}
+
+.kp-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.kp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.kp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.kp-bullets li::before {
+  content: '◆';
+  color: var(--sage-400);
+  font-size: 0.55rem;
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+}

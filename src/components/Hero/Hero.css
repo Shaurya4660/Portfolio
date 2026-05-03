@@ -1,0 +1,384 @@
+/* src/components/Hero/Hero.css */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem 3rem;
+}
+
+/* Ambient background blobs */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.hero-blob-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  top: -100px;
+  right: -50px;
+}
+
+.hero-blob-2 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, var(--accent-2), transparent 70%);
+  bottom: 0px;
+  left: -80px;
+}
+
+/* Main Grid Layout */
+.hero-content-grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* --- Left Side --- */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(39, 201, 63, 0.1);
+  border: 1px solid rgba(39, 201, 63, 0.2);
+  color: #27c93f;
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.badge-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background: #27c93f;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.badge-dot::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: #27c93f;
+  opacity: 0.4;
+  animation: livePulse 1.8s ease-out infinite;
+}
+
+.badge-dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: #27c93f;
+  opacity: 0.15;
+  animation: livePulse 1.8s ease-out infinite 0.3s;
+}
+
+@keyframes livePulse {
+  0%   { transform: scale(1); opacity: 0.5; }
+  70%  { transform: scale(2); opacity: 0; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.hero-eyebrow-line {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.hero-main-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-surname { color: var(--text-muted); }
+
+.name-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-left: 0.5rem;
+}
+
+.hero-main-role {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.tech-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.8rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+}
+
+.hero-actions-row {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.btn-icon {
+  gap: 0.75rem;
+}
+
+.btn-image-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.hero-info-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.info-divider {
+  width: 4px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 50%;
+}
+
+.hero-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-info-item svg {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* --- Right Side --- */
+.hero-visual-side {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-visual-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Wireframe Globe (Dharti) --- */
+.hero-visual-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wireframe-globe {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -1rem;
+  animation: globeSpin 12s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes globeSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+/* Keep the SV badge counter-rotating so text stays readable */
+.globe-text {
+  animation: globeTextCounter 12s linear infinite;
+}
+
+@keyframes globeTextCounter {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(-360deg); }
+}
+
+/* Base shape: a circle with radial glow */
+.wireframe-globe::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(var(--accent-rgb), 0.4);
+  background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.08) 0%, transparent 70%);
+}
+
+.globe-text {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--bg-primary);
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(var(--accent-rgb), 0.2),
+    inset 0 0 10px rgba(var(--accent-rgb), 0.1);
+  z-index: 5;
+  transition: all 0.5s var(--ease-out);
+}
+
+.wireframe-globe:hover .globe-text {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px var(--accent);
+  background: var(--bg-secondary);
+}
+
+.lat, .long {
+  position: absolute;
+  inset: 0;
+  border: 1.2px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Latitudes are horizontal rings, fixed for wireframe effect */
+.lat-1 { transform: scaleY(0.4); }
+.lat-2 { transform: scaleY(0.7); }
+.lat-3 { transform: scaleY(1); }
+
+/* Longitudes are vertical rings, animated to rotate fast */
+.long { animation: globeRotate 4s linear infinite; }
+.long-1 { animation-delay: 0s; }
+.long-2 { animation-delay: -1.33s; }
+.long-3 { animation-delay: -2.66s; }
+
+/* Latitude rings subtle pulse */
+.lat { animation: latPulse 4s ease-in-out infinite; }
+.lat-1 { transform: scaleY(0.4); animation-delay: 0s; }
+.lat-2 { transform: scaleY(0.7); animation-delay: 0.5s; }
+.lat-3 { transform: scaleY(1);   animation-delay: 1s; }
+
+@keyframes globeRotate {
+  0%   { transform: rotateY(0deg)   scaleX(1); opacity: 0.5; }
+  25%  { transform: rotateY(90deg)  scaleX(0); opacity: 0.1; }
+  50%  { transform: rotateY(180deg) scaleX(1); opacity: 0.5; }
+  75%  { transform: rotateY(270deg) scaleX(0); opacity: 0.1; }
+  100% { transform: rotateY(360deg) scaleX(1); opacity: 0.5; }
+}
+
+@keyframes latPulse {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.6; }
+}
+
+.globe-glow {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.05) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Responsive Globe */
+@media (max-width: 640px) {
+  .wireframe-globe { width: 220px; height: 220px; }
+  .globe-text { font-size: 2.5rem; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-content-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .hero-text-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-description { margin-left: auto; margin-right: auto; }
+  .hero-tech-stack { justify-content: center; }
+  .hero-actions-row { justify-content: center; }
+  .hero-info-footer { justify-content: center; flex-wrap: wrap; }
+  .hero-visual-side { display: flex; transform: scale(0.8); margin-top: -2rem; }
+  .wireframe-globe { width: 260px; height: 260px; }
+  .globe-text { font-size: 3rem; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding-top: 6rem; }
+  .hero-main-name { font-size: 3.2rem; }
+  .hero-actions-row { flex-direction: column; width: 100%; }
+  .hero-actions-row .btn { width: 100%; justify-content: center; }
+}
